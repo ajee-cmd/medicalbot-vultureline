@@ -15,30 +15,34 @@ body {
 }
 
 /* Chatbot Icon */
+/* Chatbot Icon (Cleaned and Fixed) */
 #chatbot-icon {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background-color: #1E88E5;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1000;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-#chatbot-icon .chatbot-icon-svg {
-    width: 28px;
-    height: 28px;
-    stroke: #FFFFFF;
-    stroke-width: 2;
+#chatbot-icon:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
+
+.chatbot-icon-gif {
+    width: 64px;
+    height: 64px;
+    display: block;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
 
 #chatbot-icon:hover,
 #chatbot-icon:focus {
@@ -56,8 +60,8 @@ body {
     position: fixed;
     bottom: 96px;
     right: 24px;
-    width: 320px; /* Reduced from 340px */
-    max-height: 500px; /* Reduced from 520px */
+    width: 320px;
+    max-height: 500px;
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -131,7 +135,7 @@ body {
 /* Chat Box */
 #chat-box {
     flex: 1;
-    padding: 12px; /* Reduced from 16px */
+    padding: 12px;
     overflow-y: auto;
     background: #F9FAFB;
     font-size: 14px;
@@ -166,10 +170,10 @@ body {
 .message span {
     padding: 10px 14px;
     border-radius: 12px;
-    max-width: 70%; /* Reduced from 75% */
+    max-width: 70%;
     line-height: 1.5;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    word-break: break-word; /* Prevent text overflow */
+    word-break: break-word;
 }
 
 .message.bot span {
@@ -190,15 +194,15 @@ body {
 /* Speaking Indicator */
 .speaking-indicator {
     text-align: center;
-    padding: 6px; /* Reduced from 8px */
+    padding: 6px;
     color: #1E88E5;
-    font-size: 12px; /* Reduced from 13px */
+    font-size: 12px;
     font-style: italic;
     background: #E3F2FD;
     border-radius: 8px;
-    margin: 6px 12px; /* Reduced from 8px 16px */
-    max-width: 90%; /* Ensure it fits */
-    word-break: break-word; /* Prevent overflow */
+    margin: 6px 12px;
+    max-width: 90%;
+    word-break: break-word;
 }
 
 /* Loading Indicator */
@@ -473,17 +477,17 @@ body {
     }
 
     #chat-box {
-        padding: 10px; /* Further reduced for small screens */
+        padding: 10px;
     }
 
     .message span {
-        max-width: 75%; /* Adjusted for smaller screens */
+        max-width: 75%;
         font-size: 13px;
     }
 
     .speaking-indicator {
         font-size: 11px;
-        margin: 4px 10px; /* Further reduced */
+        margin: 4px 10px;
     }
 
     #chat-input {
@@ -518,3 +522,8 @@ body {
         font-size: 13px;
     }
 }
+
+
+
+
+
