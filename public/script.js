@@ -99,7 +99,7 @@ function handleUserInput() {
 }
 
 function handleMedicalInquiry() {
-    addUserMessage("Ask Medical Related");
+    addUserMessage("Ask Medical Question");
     showLoading(true);
     fetchBotResponse("medical_inquiry");
 }
@@ -156,7 +156,7 @@ function startVoiceRecognition() {
                 document.getElementById('chat-input').style.display = 'flex';
                 document.getElementById('voice-controls').style.display = 'none';
             }
-        }, 100); // Slight delay for initialization
+        }, 100);
     }).catch(error => {
         console.error('Permission query failed:', error.name, error.message, error.stack);
         addBotMessage("Cannot check microphone permission. Please ensure microphone access in Chrome settings (chrome://settings/content/microphone).", [], false, true);
@@ -175,8 +175,8 @@ function stopVoiceRecognition() {
         try {
             recognition.stop();
             recognition.abort();
-            recognition = null; // Clear instance
-            initializeSpeechRecognition(); // Reinitialize for next use
+            recognition = null;
+            initializeSpeechRecognition();
         } catch (error) {
             console.error('Stop recognition failed:', error.name, error.message, error.stack);
         }
@@ -337,7 +337,14 @@ function addBotMessage(text, buttons = [], disableInput = false, hideInput = fal
 
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message bot';
-    messageDiv.innerHTML = `<div class="icon">🤖</div><span>${text || 'Please try again.'}</span>`;
+    messageDiv.innerHTML = `
+        <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 3v3m0 0v3m0-3h-3m3 0h3m-6 6h9a3 3 0 013 3v3a3 3 0 01-3 3H9a3 3 0 01-3-3v-3a3 3 0 013-3z"/>
+            </svg>
+        </div>
+        <span>${text || 'Please try again.'}</span>
+    `;
     chatBox.appendChild(messageDiv);
 
     let speakingIndicator = document.getElementById('speaking-indicator');
@@ -354,7 +361,11 @@ function addBotMessage(text, buttons = [], disableInput = false, hideInput = fal
         const examplesDiv = document.createElement('div');
         examplesDiv.className = 'message bot';
         examplesDiv.innerHTML = `
-            <div class="icon">🤖</div>
+            <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 3v3m0 0v3m0-3h-3m3 0h3m-6 6h9a3 3 0 013 3v3a3 3 0 01-3 3H9a3 3 0 01-3-3v-3a3 3 0 013-3z"/>
+                </svg>
+            </div>
             <span>Try asking:<br>
             - What are the symptoms of flu?<br>
             - How is diabetes treated?<br>
@@ -497,7 +508,14 @@ function addUserMessage(text) {
     const chatBox = document.getElementById('chat-box');
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message user';
-    messageDiv.innerHTML = `<div class="icon">👤</div><span>${text}</span>`;
+    messageDiv.innerHTML = `
+        <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+        </div>
+        <span>${text}</span>
+    `;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
