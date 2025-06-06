@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Chatbot toggle button with transparent PNG icon -->
+  <!-- Chatbot toggle button -->
   <button id="chatbot-icon" class="chatbot-icon" aria-label="Toggle Doctor Appointment Chatbot" onclick="toggleChat()" title="Open Chatbot">
     <img src="AIOimage-CKuSqVCG.png" alt="Chatbot Icon" class="chatbot-icon-gif" />
   </button>
@@ -18,8 +18,7 @@
     <div id="chat-header">
       <div class="chat-header-content">
         <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2C20 17.5 12 22 12 22z" />
-          <path d="M12 6v4m0 0v2m0-2h4m-4 0H8" />
+          <path d="M12 2v20M22 12H2" stroke-width="2" />
         </svg>
         <h2 id="chat-title">Micky</h2>
       </div>
@@ -40,11 +39,9 @@
     <div id="voice-controls" style="display: none;">
       <button id="voice-start" class="voice-button" aria-label="Start Voice Recording" onclick="startVoiceRecognition()">Start</button>
       <button id="voice-stop" class="voice-button" aria-label="Stop Voice Recording" onclick="stopVoiceRecognition()" style="display: none;">Stop</button>
-      <button id="voice-stop-speaking" class="voice-button" aria-label="Stop Speaking" onclick="stopSpeaking()" style="display: none;">Stop Speaking</button>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
